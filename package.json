@@ -1,5 +1,5 @@
 {
-  "name": "template",
+  "name": "node-http",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "test": "jest --watch",
     "dev": "webpack --mode=development",
     "build": "webpack --mode=production",
-    "start": "nodemon src/index.js localhost ",
+    "start": "nodemon src/app.js localhost ",
     "prepare": "husky install",
     "lint-staged": "lint-staged",
     "deploy": "gh-pages -d dist",
@@ -69,6 +69,7 @@
     }
   },
   "dependencies": {
+    "express": "^4.17.2",
     "ramda": "^0.27.1"
   }
 }
