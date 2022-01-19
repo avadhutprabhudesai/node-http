@@ -86,12 +86,16 @@ const server = http.createServer((req, res) => {
   } else if (method === 'POST') {
     let body = '';
 
+    let { headers } = req;
+
     req.on('data', (chunk) => {
       body += chunk.toString();
     });
 
     req.on('end', () => {
-      body = JSON.parse(body);
+      if (headers['data-type'] === 'json') {
+        body = JSON.parse(body);
+      }
       let queryParams = {};
       for (const [key, value] of searchParams.entries()) {
         queryParams[key] = value;
